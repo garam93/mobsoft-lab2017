@@ -1,8 +1,22 @@
 package com.example.mobsoft.mobsoft;
 
-/**
- * Created by mobsoft on 2017. 03. 27..
- */
+import android.app.Application;
 
-public class MobSoftApplication {
+import com.example.mobsoft.mobsoft.ui.UIModule;
+
+
+public class MobSoftApplication extends Application {
+
+    public static MobSoftApplicationComponent injector;
+
+    @Override
+    public void onCreate() {
+        super.onCreate();
+
+        injector =
+                DaggerMobSoftApplicationComponent.builder().
+                        uIModule(
+                                new UIModule(this)
+                        ).build();
+    }
 }

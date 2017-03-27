@@ -1,8 +1,8 @@
 package com.example.mobsoft.mobsoft.ui.main;
 
-/**
- * Created by mobsoft on 2017. 03. 27..
- */
+import java.util.List;
 
-public class MainScreen {
+public interface MainScreen {
+    void showMessage(String text);
+    List<String> getNewsList();
 }

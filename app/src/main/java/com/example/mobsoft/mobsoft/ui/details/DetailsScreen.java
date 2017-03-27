@@ -5,4 +5,5 @@ package com.example.mobsoft.mobsoft.ui.details;
  */
 
 public interface DetailsScreen {
+    String getDetails(int id);
 }

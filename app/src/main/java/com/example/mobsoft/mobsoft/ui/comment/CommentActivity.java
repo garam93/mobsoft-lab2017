@@ -1,13 +1,36 @@
 package com.example.mobsoft.mobsoft.ui.comment;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 
-public class CommentActivity extends AppCompatActivity {
+import javax.inject.Inject;
+
+public class CommentActivity extends AppCompatActivity implements CommentScreen {
+
+    @Inject
+    CommentPresenter commentPresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_comment);
+        //setContentView(R.layout.activity_comment);
+
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        commentPresenter.attachScreen(this);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        commentPresenter.detachScreen();
+    }
+
+    @Override
+    public boolean createComment(String message) {
+        return commentPresenter.createComment(message);
     }
 }

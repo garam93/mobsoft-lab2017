@@ -1,8 +1,15 @@
 package com.example.mobsoft.mobsoft;
 
-/**
- * Created by mobsoft on 2017. 03. 27..
- */
+import com.example.mobsoft.mobsoft.ui.UIModule;
+import com.example.mobsoft.mobsoft.ui.main.MainActivity;
 
-public class MobSoftApplicationComponent {
+import javax.inject.Singleton;
+
+import dagger.Component;
+
+@Singleton
+@Component(modules = {UIModule.class})
+public interface MobSoftApplicationComponent {
+    void inject(MainActivity mainActivity);
+
 }
