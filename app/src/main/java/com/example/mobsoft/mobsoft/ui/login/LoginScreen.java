@@ -6,4 +6,5 @@ package com.example.mobsoft.mobsoft.ui.login;
 
 public interface LoginScreen {
     boolean login(String username, String password);
+    void showMessage(String message);
 }

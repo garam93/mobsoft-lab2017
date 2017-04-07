@@ -32,4 +32,9 @@ public class LoginActivity extends AppCompatActivity  implements LoginScreen {
     public boolean login(String username, String password) {
         return loginPresenter.login(username, password);
     }
+
+    @Override
+    public void showMessage(String message) {
+
+    }
 }

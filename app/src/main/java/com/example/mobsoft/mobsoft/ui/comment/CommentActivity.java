@@ -3,6 +3,10 @@ package com.example.mobsoft.mobsoft.ui.comment;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
+import com.example.mobsoft.mobsoft.model.Comment;
+
+import java.util.Date;
+
 import javax.inject.Inject;
 
 public class CommentActivity extends AppCompatActivity implements CommentScreen {
@@ -30,7 +34,13 @@ public class CommentActivity extends AppCompatActivity implements CommentScreen 
     }
 
     @Override
-    public boolean createComment(String message) {
-        return commentPresenter.createComment(message);
+    public boolean createComment(String message, String userId, String newsId) {
+        return commentPresenter.createComment(message, newsId, userId);
+    }
+
+
+    @Override
+    public void showMessage(String message) {
+
     }
 }

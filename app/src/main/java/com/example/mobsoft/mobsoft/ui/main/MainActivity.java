@@ -6,6 +6,7 @@ import android.widget.Toast;
 
 import com.example.mobsoft.mobsoft.MobSoftApplication;
 import com.example.mobsoft.mobsoft.R;
+import com.example.mobsoft.mobsoft.model.News;
 
 import java.util.List;
 
@@ -42,7 +43,7 @@ public class MainActivity extends AppCompatActivity implements MainScreen {
     }
 
     @Override
-    public List<String> getNewsList() {
-        return mainPresenter.getNewsList();
+    public void getNewsList() {
+        mainPresenter.getNewsList();
     }
 }

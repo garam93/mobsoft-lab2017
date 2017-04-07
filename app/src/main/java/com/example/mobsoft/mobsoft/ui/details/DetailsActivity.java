@@ -3,6 +3,8 @@ package com.example.mobsoft.mobsoft.ui.details;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
+import java.util.Date;
+
 import javax.inject.Inject;
 
 public class DetailsActivity extends AppCompatActivity implements DetailsScreen {
@@ -29,7 +31,12 @@ public class DetailsActivity extends AppCompatActivity implements DetailsScreen 
     }
 
     @Override
-    public String getDetails(int id) {
-        return detailsPresenter.getDetails(id);
+    public void getDetails(Date date) {
+        detailsPresenter.getDetails(date);
+    }
+
+    @Override
+    public void showMessage(String message) {
+
     }
 }

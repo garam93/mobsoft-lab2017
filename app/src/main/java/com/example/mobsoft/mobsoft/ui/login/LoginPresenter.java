@@ -1,23 +1,72 @@
 package com.example.mobsoft.mobsoft.ui.login;
 
+import android.util.Log;
+
+import com.example.mobsoft.mobsoft.MobSoftApplication;
+import com.example.mobsoft.mobsoft.interactor.comment.events.GetNewsEvent;
+import com.example.mobsoft.mobsoft.interactor.news.NewsInteractor;
 import com.example.mobsoft.mobsoft.ui.Presenter;
+
+import java.util.concurrent.Executor;
+
+import javax.inject.Inject;
+
+import de.greenrobot.event.EventBus;
 
 
 public class LoginPresenter extends Presenter<LoginScreen> {
+
+    @Inject
+    NewsInteractor newsInteractor;
+
+    @Inject
+    EventBus bus;
+
+    @Inject
+    Executor executor;
+
     public LoginPresenter(){
     }
 
     @Override
     public void attachScreen(LoginScreen screen) {
         super.attachScreen(screen);
+        MobSoftApplication.injector.inject(this);
+        bus.register(this);
     }
 
     @Override
     public void detachScreen() {
+        bus.unregister(this);
         super.detachScreen();
     }
 
     public boolean login(String username, String password){
         return true;
+    }
+
+    public void getNewsList() {
+        executor.execute(new Runnable() {
+            @Override
+            public void run() {
+                newsInteractor.getNews();
+            }
+        });
+    }
+
+    public void onEventMainThread(GetNewsEvent event) {
+        if (event.getThrowable() != null) {
+            event.getThrowable().printStackTrace();
+            if (screen != null) {
+                screen.showMessage("error");
+            }
+            Log.e("Networking", "Error reading favourites", event.getThrowable());
+        } else {
+            if (screen != null) {
+                /*for(News n : event.getNews()){
+                    screen.showMessage(n);;
+                }*/
+            }
+        }
     }
 }
