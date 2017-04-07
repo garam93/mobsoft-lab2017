@@ -1,9 +1,9 @@
 package com.example.mobsoft.mobsoft.repository;
 import android.content.Context;
-import android.net.Credentials;
 
 import com.example.mobsoft.mobsoft.model.Comment;
 import com.example.mobsoft.mobsoft.model.News;
+import com.example.mobsoft.mobsoft.model.Credentials;
 import com.orm.SugarContext;
 import com.orm.SugarRecord;
 
@@ -48,6 +48,5 @@ public class SugarOrmRepository implements Repository {
     public boolean login(Credentials credentials) {
         return false;
     }
-
 
 }

@@ -3,8 +3,11 @@ package com.example.mobsoft.mobsoft.ui.login;
 import android.util.Log;
 
 import com.example.mobsoft.mobsoft.MobSoftApplication;
-import com.example.mobsoft.mobsoft.interactor.comment.events.GetNewsEvent;
+import com.example.mobsoft.mobsoft.interactor.login.LoginInteractor;
+import com.example.mobsoft.mobsoft.interactor.login.events.LoginEvent;
+import com.example.mobsoft.mobsoft.interactor.news.events.GetNewsEvent;
 import com.example.mobsoft.mobsoft.interactor.news.NewsInteractor;
+import com.example.mobsoft.mobsoft.model.Credentials;
 import com.example.mobsoft.mobsoft.ui.Presenter;
 
 import java.util.concurrent.Executor;
@@ -17,7 +20,7 @@ import de.greenrobot.event.EventBus;
 public class LoginPresenter extends Presenter<LoginScreen> {
 
     @Inject
-    NewsInteractor newsInteractor;
+    LoginInteractor loginInteractor;
 
     @Inject
     EventBus bus;
@@ -41,20 +44,19 @@ public class LoginPresenter extends Presenter<LoginScreen> {
         super.detachScreen();
     }
 
-    public boolean login(String username, String password){
-        return true;
-    }
-
-    public void getNewsList() {
+    public void login(String username, String password){
+        final Credentials credentials = new Credentials();
+        credentials.setUsername(username);
+        credentials.setPassword(password);
         executor.execute(new Runnable() {
             @Override
             public void run() {
-                newsInteractor.getNews();
+                loginInteractor.login(credentials);
             }
         });
     }
 
-    public void onEventMainThread(GetNewsEvent event) {
+    public void onEventMainThread(LoginEvent event) {
         if (event.getThrowable() != null) {
             event.getThrowable().printStackTrace();
             if (screen != null) {

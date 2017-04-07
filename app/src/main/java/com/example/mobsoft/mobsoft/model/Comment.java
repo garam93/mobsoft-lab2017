@@ -1,14 +1,28 @@
 package com.example.mobsoft.mobsoft.model;
 
+import com.orm.dsl.Table;
+
 import java.util.Date;
 
 /**
  * Created by mobsoft on 2017. 04. 07..
  */
 
+@Table
 public class Comment {
     String body;
     String userId;
+    Date creationDate;
+    String newsId;
+
+    public Comment(){}
+
+    public Comment(String body, String userId, Date creationDate, String newsId){
+        this.body = body;
+        this.userId = userId;
+        this.creationDate = creationDate;
+        this.newsId = newsId;
+    }
 
     public String getBody() {
         return body;
@@ -42,6 +56,5 @@ public class Comment {
         this.newsId = newsId;
     }
 
-    Date creationDate;
-    String newsId;
+
 }

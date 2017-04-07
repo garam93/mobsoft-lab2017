@@ -55,7 +55,7 @@ public class UIModule {
     public DetailsPresenter provideDetailsPresenter() {
         return new DetailsPresenter();
     }
-
+/*
     @Provides
     @Singleton
     public NewsInteractor provideNewsInteractor() {
@@ -71,6 +71,7 @@ public class UIModule {
     @Provides
     @Singleton
     public CommentInteractor provideCommentInteractor() { return new CommentInteractor(); }
+    */
 
     @Provides
     @Singleton

@@ -1,18 +1,42 @@
 package com.example.mobsoft.mobsoft.model;
 
+import com.orm.dsl.Table;
+
 import java.util.Date;
 
 /**
  * Created by mobsoft on 2017. 04. 07..
  */
 
+@Table
 public class News {
+    String id;
     String title;
     String lead;
     String body;
     Date date;
     String coverImageUrl;
     String author;
+
+    public News(){}
+
+    public News(String id, String title, String lead, String body, Date date, String coverImageUrl, String author){
+        this.id = id;
+        this.title = title;
+        this.lead = lead;
+        this.body = body;
+        this.date = date;
+        this.coverImageUrl = coverImageUrl;
+        this.author = author;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public String getTitle() {
         return title;

@@ -1,7 +1,7 @@
 package com.example.mobsoft.mobsoft.interactor.news;
 
 import com.example.mobsoft.mobsoft.MobSoftApplication;
-import com.example.mobsoft.mobsoft.interactor.comment.events.GetNewsEvent;
+import com.example.mobsoft.mobsoft.interactor.news.events.GetNewsEvent;
 import com.example.mobsoft.mobsoft.model.News;
 import com.example.mobsoft.mobsoft.repository.Repository;
 

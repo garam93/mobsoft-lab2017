@@ -1,9 +1,7 @@
 package com.example.mobsoft.mobsoft.interactor.comment;
 
-import android.app.usage.UsageEvents;
-
 import com.example.mobsoft.mobsoft.MobSoftApplication;
-import com.example.mobsoft.mobsoft.interactor.news.events.GetCommentsEvent;
+import com.example.mobsoft.mobsoft.interactor.comment.events.GetCommentsEvent;
 import com.example.mobsoft.mobsoft.interactor.news.events.SaveCommentEvent;
 import com.example.mobsoft.mobsoft.model.Comment;
 import com.example.mobsoft.mobsoft.repository.Repository;

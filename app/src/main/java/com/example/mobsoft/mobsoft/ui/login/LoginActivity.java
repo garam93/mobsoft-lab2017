@@ -29,8 +29,8 @@ public class LoginActivity extends AppCompatActivity  implements LoginScreen {
     }
 
     @Override
-    public boolean login(String username, String password) {
-        return loginPresenter.login(username, password);
+    public void login(String username, String password) {
+        loginPresenter.login(username, password);
     }
 
     @Override

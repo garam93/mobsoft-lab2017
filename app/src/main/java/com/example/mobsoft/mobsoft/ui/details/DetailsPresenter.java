@@ -3,7 +3,7 @@ package com.example.mobsoft.mobsoft.ui.details;
 import android.util.Log;
 
 import com.example.mobsoft.mobsoft.MobSoftApplication;
-import com.example.mobsoft.mobsoft.interactor.comment.events.GetNewsEvent;
+import com.example.mobsoft.mobsoft.interactor.news.events.GetNewsEvent;
 import com.example.mobsoft.mobsoft.interactor.news.NewsInteractor;
 import com.example.mobsoft.mobsoft.ui.Presenter;
 

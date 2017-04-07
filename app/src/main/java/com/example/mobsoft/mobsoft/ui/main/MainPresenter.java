@@ -3,14 +3,10 @@ package com.example.mobsoft.mobsoft.ui.main;
 import android.util.Log;
 
 import com.example.mobsoft.mobsoft.MobSoftApplication;
-import com.example.mobsoft.mobsoft.interactor.comment.CommentInteractor;
-import com.example.mobsoft.mobsoft.interactor.comment.events.GetNewsEvent;
+import com.example.mobsoft.mobsoft.interactor.news.events.GetNewsEvent;
 import com.example.mobsoft.mobsoft.interactor.news.NewsInteractor;
-import com.example.mobsoft.mobsoft.model.News;
 import com.example.mobsoft.mobsoft.ui.Presenter;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.concurrent.Executor;
 
 import javax.inject.Inject;

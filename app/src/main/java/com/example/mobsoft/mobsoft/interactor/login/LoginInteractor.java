@@ -1,14 +1,9 @@
 package com.example.mobsoft.mobsoft.interactor.login;
 
-import android.net.Credentials;
-
+import com.example.mobsoft.mobsoft.model.*;
 import com.example.mobsoft.mobsoft.MobSoftApplication;
 import com.example.mobsoft.mobsoft.interactor.login.events.LoginEvent;
-import com.example.mobsoft.mobsoft.interactor.news.events.GetCommentsEvent;
-import com.example.mobsoft.mobsoft.model.Comment;
 import com.example.mobsoft.mobsoft.repository.Repository;
-
-import java.util.List;
 
 import javax.inject.Inject;
 
