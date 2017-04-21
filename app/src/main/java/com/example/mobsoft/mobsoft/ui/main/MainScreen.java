@@ -7,4 +7,5 @@ import java.util.List;
 public interface MainScreen {
     void showMessage(String message);
     void getNewsList();
+    void showNews(List<News> news);
 }

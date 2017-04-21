@@ -17,8 +17,9 @@ public class MemoryRepository implements Repository {
     public static List<Comment> comments;
     @Override
     public void open(Context context) {
-        News news1 = new News(java.util.UUID.randomUUID().toString(), "Cím", "Lead", "Body", new Date(), "http://google.hu", "Garamvölgyi Gábor");
-        News news2 = new News(java.util.UUID.randomUUID().toString(), "Cím 2", "Lead 2", "Body 2", new Date(), "http://google.hu", "Garamvölgyi Gábor");
+        /*
+        News news1 = new News(, "Cím", "Lead", "Body", new Date().toString(), "http://google.hu", "Garamvölgyi Gábor");
+        News news2 = new News(, "Cím 2", "Lead 2", "Body 2", new Date().toString(), "http://google.hu", "Garamvölgyi Gábor");
 
         news = new ArrayList<News>();
         news.add(news1);
@@ -29,6 +30,7 @@ public class MemoryRepository implements Repository {
         comments = new ArrayList<Comment>();
         comments.add(c1);
         comments.add(c2);
+        */
     }
 
     @Override
@@ -65,5 +67,10 @@ public class MemoryRepository implements Repository {
     @Override
     public boolean login(Credentials credentials) {
         return true;
+    }
+
+    @Override
+    public void saveNews(List<News> news) {
+
     }
 }

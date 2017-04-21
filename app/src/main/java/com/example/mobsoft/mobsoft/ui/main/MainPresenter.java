@@ -5,6 +5,7 @@ import android.util.Log;
 import com.example.mobsoft.mobsoft.MobSoftApplication;
 import com.example.mobsoft.mobsoft.interactor.news.events.GetNewsEvent;
 import com.example.mobsoft.mobsoft.interactor.news.NewsInteractor;
+import com.example.mobsoft.mobsoft.model.News;
 import com.example.mobsoft.mobsoft.ui.Presenter;
 
 import java.util.concurrent.Executor;
@@ -59,8 +60,9 @@ public class MainPresenter extends Presenter<MainScreen> {
             Log.e("Networking", "Error reading favourites", event.getThrowable());
         } else {
             if (screen != null) {
+                screen.showNews(event.getNews());
                 /*for(News n : event.getNews()){
-                    screen.showMessage(n);;
+                    screen.showMessage(n.);
                 }*/
             }
         }

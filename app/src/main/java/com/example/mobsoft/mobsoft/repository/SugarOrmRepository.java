@@ -29,6 +29,10 @@ public class SugarOrmRepository implements Repository {
         return SugarRecord.listAll(News.class);
     }
 
+    public void saveNews(List<News> news){
+        SugarRecord.saveInTx(news);
+    }
+
     @Override
     public void saveComment(Comment comment) {
         SugarRecord.saveInTx(comment);

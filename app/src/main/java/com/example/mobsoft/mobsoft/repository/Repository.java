@@ -29,4 +29,5 @@ public interface Repository {
     List<Comment> getComments();
 
     boolean login(Credentials credentials);
+    void saveNews(List<News> news);
 }

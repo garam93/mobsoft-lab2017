@@ -2,7 +2,10 @@ package com.example.mobsoft.mobsoft;
 
 import android.app.Application;
 
+import com.example.mobsoft.mobsoft.interactor.InteractorModule;
+import com.example.mobsoft.mobsoft.network.NetworkModule;
 import com.example.mobsoft.mobsoft.repository.Repository;
+import com.example.mobsoft.mobsoft.repository.RepositoryModule;
 import com.example.mobsoft.mobsoft.ui.UIModule;
 
 import javax.inject.Inject;
@@ -23,7 +26,11 @@ public class MobSoftApplication extends Application {
                 DaggerMobSoftApplicationComponent.builder().
                         uIModule(
                                 new UIModule(this)
-                        ).build();
+                        )
+                        .interactorModule(new InteractorModule())
+                        .repositoryModule(new RepositoryModule())
+                        .networkModule(new NetworkModule())
+                        .build();
         injector.inject(this);
         repository.open(getApplicationContext());
     }
