@@ -4,6 +4,8 @@ import java.util.Date;
 import java.util.Objects;
 
 import com.google.gson.annotations.SerializedName;
+import com.orm.SugarRecord;
+import com.orm.dsl.Table;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -13,9 +15,9 @@ import io.swagger.annotations.ApiModelProperty;
  */
 
 @ApiModel(description = "")
-public class News   {
+@Table
+public class News{
 
-    @SerializedName("id")
     private Long id = null;
 
     @SerializedName("title")
@@ -164,6 +166,10 @@ public class News   {
             return "null";
         }
         return o.toString().replace("\n", "\n    ");
+    }
+
+    public News(){
+
     }
 
     public News(Long id, String title, String lead, String body, String date, String coverImageUrl, String author){

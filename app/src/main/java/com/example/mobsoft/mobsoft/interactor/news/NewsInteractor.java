@@ -11,6 +11,7 @@ import com.example.mobsoft.mobsoft.repository.Repository;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Random;
 
 import javax.inject.Inject;
 
@@ -42,12 +43,19 @@ public class NewsInteractor implements Callback<NewsContainer> {
         try {
             NewsContainer body = newsApi.newsGet().execute().body();
             List<News> news = body.getArticles();
+            for (News n: news) {
+                final long id = new Random().nextLong();
+                n.setId(id);
+            }
             event.setNews(news);
+            repository.saveNews(news);
             bus.post(event);
 
         }
         catch(Exception e){
             Log.v("Aaa", e.getMessage());
+            event.setThrowable(e);
+            bus.post(event);
         }
         /*GetNewsEvent event = new GetNewsEvent();
         try{

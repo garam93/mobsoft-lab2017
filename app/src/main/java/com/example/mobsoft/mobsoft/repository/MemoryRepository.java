@@ -44,6 +44,11 @@ public class MemoryRepository implements Repository {
     }
 
     @Override
+    public News getNewsById(long id) {
+        return null;
+    }
+
+    @Override
     public void saveComment(Comment comment) {
         comments.add(comment);
     }
@@ -62,6 +67,16 @@ public class MemoryRepository implements Repository {
     @Override
     public List<Comment> getComments() {
         return comments;
+    }
+
+    @Override
+    public List<Comment> getCommentsByNewsId(long newsId) {
+        return comments;
+    }
+
+    @Override
+    public Comment getCommentById(long id) {
+        return null;
     }
 
     @Override

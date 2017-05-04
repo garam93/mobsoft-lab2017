@@ -5,6 +5,6 @@ package com.example.mobsoft.mobsoft.ui.comment;
  */
 
 public interface CommentScreen {
-    boolean createComment(String message, String userId, String newsId);
+    boolean createComment(String message, String userId, long newsId);
     void showMessage(String message);
 }

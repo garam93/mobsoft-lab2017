@@ -5,10 +5,15 @@ import com.example.mobsoft.mobsoft.interactor.comment.CommentInteractor;
 import com.example.mobsoft.mobsoft.interactor.login.LoginInteractor;
 import com.example.mobsoft.mobsoft.interactor.news.NewsInteractor;
 import com.example.mobsoft.mobsoft.network.NetworkModule;
+import com.example.mobsoft.mobsoft.repository.Repository;
 import com.example.mobsoft.mobsoft.repository.RepositoryModule;
+import com.example.mobsoft.mobsoft.repository.SugarOrmRepository;
 import com.example.mobsoft.mobsoft.ui.UIModule;
+import com.example.mobsoft.mobsoft.ui.comment.CommentActivity;
 import com.example.mobsoft.mobsoft.ui.comment.CommentPresenter;
+import com.example.mobsoft.mobsoft.ui.details.DetailsActivity;
 import com.example.mobsoft.mobsoft.ui.details.DetailsPresenter;
+import com.example.mobsoft.mobsoft.ui.login.LoginActivity;
 import com.example.mobsoft.mobsoft.ui.login.LoginPresenter;
 import com.example.mobsoft.mobsoft.ui.main.MainActivity;
 import com.example.mobsoft.mobsoft.ui.main.MainPresenter;
@@ -21,6 +26,11 @@ import dagger.Component;
 @Component(modules = {UIModule.class, RepositoryModule.class, InteractorModule.class, NetworkModule.class})
 public interface MobSoftApplicationComponent {
     void inject(MainActivity mainActivity);
+
+    void inject(LoginActivity loginActivity);
+
+    void inject(DetailsActivity detailsActivity);
+    void inject(CommentActivity commentActivity);
 
     void inject(MobSoftApplication mobSoftApplication);
 

@@ -8,7 +8,7 @@ import com.google.gson.GsonBuilder;
  */
 
 public class GsonHelper {
-    public static final String DATE_FORMAT = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'";
+    public static final String DATE_FORMAT = "yyyy.MM.dd HH:mm:ss";
 
     private static Gson gson;
 

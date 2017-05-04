@@ -45,7 +45,7 @@ public class CommentInteractor {
         SaveCommentEvent event = new SaveCommentEvent();
         event.setComment(comment);
         try{
-            repository.saveComment(new Comment());
+            repository.saveComment(comment);
             bus.post(event);
         }
         catch(Exception e){

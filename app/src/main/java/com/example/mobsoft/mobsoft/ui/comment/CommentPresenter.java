@@ -10,7 +10,9 @@ import com.example.mobsoft.mobsoft.model.Comment;
 import com.example.mobsoft.mobsoft.model.News;
 import com.example.mobsoft.mobsoft.ui.Presenter;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Random;
 import java.util.concurrent.Executor;
 
 import javax.inject.Inject;
@@ -48,12 +50,14 @@ public class CommentPresenter extends Presenter<CommentScreen> {
         super.detachScreen();
     }
 
-    public boolean createComment(String message, String newsId, String creatorId){
+    public boolean createComment(String message, long newsId, String creatorId){
         Comment comment = new Comment();
+        //comment.setId(new Random().nextLong());
         comment.setBody(message);
         comment.setNewsId(newsId);
         comment.setUserId(creatorId);
         comment.setCreationDate(new Date());
+        //comment.setUserName("USER1");
         try{
             commentInteractor.saveComment(comment);
         }
@@ -64,6 +68,7 @@ public class CommentPresenter extends Presenter<CommentScreen> {
     }
 
     public void onEventMainThread(SaveCommentEvent event) {
+        Log.d("test","test");
         if (event.getThrowable() != null) {
             event.getThrowable().printStackTrace();
             if (screen != null) {
@@ -72,9 +77,6 @@ public class CommentPresenter extends Presenter<CommentScreen> {
             Log.e("Networking", "Error reading favourites", event.getThrowable());
         } else {
             if (screen != null) {
-                /*for(Comment c : event.getComment()){
-                    screen.showMessage(c.getUserId());;
-                }*/
             }
         }
     }

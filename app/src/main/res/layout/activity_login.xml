@@ -10,4 +10,57 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.mobsoft.mobsoft.ui.login.LoginActivity">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="150dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Bejelentkezés"
+            android:textSize="40dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/loginUserNameTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Felhasználónév" />
+
+            <EditText
+                android:id="@+id/loginUserNameEdit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/loginPasswordTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Jelszó" />
+
+            <EditText
+                android:id="@+id/loginPasswordEdit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+
+        </LinearLayout>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Bejelentkezés"
+            android:id="@+id/loginBtn"/>
+    </LinearLayout>
 </RelativeLayout>

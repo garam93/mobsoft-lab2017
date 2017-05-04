@@ -29,13 +29,21 @@ public class SugarOrmRepository implements Repository {
         return SugarRecord.listAll(News.class);
     }
 
+    @Override
+    public News getNewsById(long id) {
+        return SugarRecord.findById(News.class, id);
+    }
+
     public void saveNews(List<News> news){
-        SugarRecord.saveInTx(news);
+        SugarRecord.deleteAll(News.class);
+        for(News n: news){
+            SugarRecord.saveInTx(n);
+        }
     }
 
     @Override
     public void saveComment(Comment comment) {
-        SugarRecord.saveInTx(comment);
+        SugarRecord.save(comment);
     }
 
     @Override
@@ -46,6 +54,21 @@ public class SugarOrmRepository implements Repository {
     @Override
     public List<Comment> getComments() {
         return SugarRecord.listAll(Comment.class);
+    }
+    public List<Comment> getCommentsByNewsId(long newsId) {
+        List<Comment> retList = new ArrayList<Comment>();
+        List<Comment> comments = SugarRecord.listAll(Comment.class);
+        for(Comment c : comments){
+            if (c.getNewsId() == newsId){
+                retList.add(c);
+            }
+        }
+        return retList;
+    }
+
+    @Override
+    public Comment getCommentById(long id) {
+        return SugarRecord.findById(Comment.class, id);
     }
 
     @Override

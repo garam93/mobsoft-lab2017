@@ -22,11 +22,15 @@ public interface Repository {
 
     List<News> getNews();
 
+    News getNewsById(long id);
+
     void saveComment(Comment comment);
 
     List<News> getNewsByDate(Date date);
 
     List<Comment> getComments();
+    List<Comment> getCommentsByNewsId(long newsId);
+    Comment getCommentById(long id);
 
     boolean login(Credentials credentials);
     void saveNews(List<News> news);

@@ -52,6 +52,7 @@ public class MainPresenter extends Presenter<MainScreen> {
     }
 
     public void onEventMainThread(GetNewsEvent event) {
+        Log.d("test","test");
         if (event.getThrowable() != null) {
             event.getThrowable().printStackTrace();
             if (screen != null) {
@@ -61,9 +62,6 @@ public class MainPresenter extends Presenter<MainScreen> {
         } else {
             if (screen != null) {
                 screen.showNews(event.getNews());
-                /*for(News n : event.getNews()){
-                    screen.showMessage(n.);
-                }*/
             }
         }
     }

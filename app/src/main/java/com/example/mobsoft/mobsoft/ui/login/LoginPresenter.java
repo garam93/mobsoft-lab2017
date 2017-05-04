@@ -57,6 +57,7 @@ public class LoginPresenter extends Presenter<LoginScreen> {
     }
 
     public void onEventMainThread(LoginEvent event) {
+        Log.d("test","test");
         if (event.getThrowable() != null) {
             event.getThrowable().printStackTrace();
             if (screen != null) {
