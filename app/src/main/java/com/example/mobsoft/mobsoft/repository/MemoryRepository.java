@@ -9,6 +9,7 @@ import com.example.mobsoft.mobsoft.model.News;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Random;
 
 public class MemoryRepository implements Repository {
 
@@ -17,20 +18,18 @@ public class MemoryRepository implements Repository {
     public static List<Comment> comments;
     @Override
     public void open(Context context) {
-        /*
-        News news1 = new News(, "Cím", "Lead", "Body", new Date().toString(), "http://google.hu", "Garamvölgyi Gábor");
-        News news2 = new News(, "Cím 2", "Lead 2", "Body 2", new Date().toString(), "http://google.hu", "Garamvölgyi Gábor");
+        News news1 = new News(new Random().nextLong(), "Cím", "Lead", "Body", new Date().toString(), "http://google.hu", "Garamvölgyi Gábor");
+        News news2 = new News(new Random().nextLong(), "Cím 2", "Lead 2", "Body 2", new Date().toString(), "http://google.hu", "Garamvölgyi Gábor");
 
         news = new ArrayList<News>();
         news.add(news1);
         news.add(news2);
 
-        Comment c1 = new Comment("Nagyon tetszett", java.util.UUID.randomUUID().toString(), new Date(), news1.getId().toString());
-        Comment c2 = new Comment("Nem tetszett", java.util.UUID.randomUUID().toString(), new Date(), news2.getId().toString());
+        Comment c1 = new Comment("Nagyon tetszett", java.util.UUID.randomUUID().toString(), new Date(), news1.getId().toString(), new Random().nextLong());
+        Comment c2 = new Comment("Nem tetszett", java.util.UUID.randomUUID().toString(), new Date(), news2.getId().toString(), new Random().nextLong());
         comments = new ArrayList<Comment>();
         comments.add(c1);
         comments.add(c2);
-        */
     }
 
     @Override

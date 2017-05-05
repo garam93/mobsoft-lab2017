@@ -9,6 +9,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.ListViewCompat;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -26,6 +27,8 @@ import com.example.mobsoft.mobsoft.ui.details.DetailsActivity;
 import com.example.mobsoft.mobsoft.ui.login.LoginActivity;
 import com.example.mobsoft.mobsoft.ui.main.adapter.CardClickListener;
 import com.example.mobsoft.mobsoft.ui.main.adapter.NewsRVAdapter;
+import com.google.android.gms.analytics.HitBuilders;
+import com.google.android.gms.analytics.Tracker;
 
 import java.util.List;
 
@@ -46,6 +49,7 @@ public class MainActivity extends AppCompatActivity implements MainScreen, CardC
     Toolbar toolbar;
 
     List<News> newsList;
+    private Tracker mTracker;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +64,16 @@ public class MainActivity extends AppCompatActivity implements MainScreen, CardC
         setSupportActionBar(toolbar);
 
         mainView.setLayoutManager(manager);
+
+        MobSoftApplication application = (MobSoftApplication) getApplication();
+        mTracker = application.getDefaultTracker();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        mTracker.setScreenName("Main" );
+        mTracker.send(new HitBuilders.ScreenViewBuilder().build());
     }
 
     @Override
@@ -93,6 +107,10 @@ public class MainActivity extends AppCompatActivity implements MainScreen, CardC
 
     @Override
     public void getNewsList() {
+        mTracker.send(new HitBuilders.EventBuilder()
+                .setCategory("Action")
+                .setAction("GetNews")
+                .build());
         mainPresenter.getNewsList();
     }
 

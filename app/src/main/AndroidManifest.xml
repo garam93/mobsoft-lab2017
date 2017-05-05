@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.mobsoft.mobsoft">
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     <application
         android:name=".MobSoftApplication"
         android:allowBackup="true"
@@ -23,6 +24,9 @@
         <meta-data android:name="VERSION" android:value="2" />
         <meta-data android:name="QUERY_LOG" android:value="true" />
         <meta-data android:name="DOMAIN_PACKAGE_NAME" android:value="com.example" />
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="eaa2ce95a97c4025203fe93afcaf6022918927e9" />
     </application>
 
 </manifest>
